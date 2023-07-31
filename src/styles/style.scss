@@ -1,0 +1,567 @@
+//Variable
+$primary-bg-color: #F9F7F7;
+$primary-text-color: #112D4E;
+$background-path : '../assets/images';
+$primary-font: 'Cormorant', serif;
+$header-font:'Philosopher', sans-serif;
+
+@mixin heroImage {
+  background-image: url('./src/assets/images/image1.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+*, html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  background-color: $primary-bg-color;
+  color: $primary-text-color;
+  font-family: $primary-font;
+  // padding: 0 2rem;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+//Header Styling
+.Header {
+  background-color: $primary-text-color;
+  color: $primary-bg-color;
+
+  nav {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+
+    .logo {
+      h1 {
+        font-family: $header-font;
+        letter-spacing: .2rem;
+        font-size: 1.5rem;
+
+        span {
+          color: #de4a4a;
+          font-size: 1.3rem;
+        }
+      }
+    }
+  
+    .navlinks {
+      display: flex;
+      gap: 1rem;
+      margin: auto 0;
+      font-family: $header-font;
+  
+      a {
+        text-decoration: none;
+        color: $primary-bg-color;
+  
+        &:hover {
+          color: #de4a4a;
+        }
+      }
+    }
+  }
+}
+
+//HeroPage Styling
+.HeroPage {
+  position: relative;
+  color: $primary-bg-color;
+  //height: 28rem;
+
+  .heroimage-container {
+    position: relative;
+    @include heroImage();
+    line-height: 2;
+
+    height: 28rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    span {
+      font-style: italic;
+    }
+    .herotext-container {
+      text-align: center;
+      font-family: $primary-font;
+      font-weight: bold;
+      font-size: 1.5rem;
+      h1 {
+        font-size: 3rem;
+      }
+
+
+      a {
+        color: $primary-bg-color;
+        text-decoration: none;
+        background-color: #de4a4a;
+        padding: 10px;
+        border-radius: 15px;
+
+        &:hover {
+          background-color: #f64141;
+        }
+      }
+    }
+
+    .shadowcast {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #0000006d;
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+}
+
+//Showdate styling
+.ShowDate {
+
+  .datewrapper {
+    text-align: center;
+    color: #F9F7F7;
+  }
+
+  .currentdate {
+    background-color: $primary-text-color;
+    padding: 1rem;
+  }
+}
+
+//Listing styling
+#Listing {
+  text-align: center;
+  padding: 0 1.4rem;
+
+  .listing-container {
+    h2 {
+      margin: 4rem 0;
+    }
+    
+    .listing-items {
+      text-align: left;
+
+      .listing-item {
+        border-radius: 15px;
+        background-color: white;
+        margin: 1rem 0;
+        border: 1px solid #cbcaca40;
+
+        img {
+          display: block;
+          border-radius: 15px 15px 0 0;
+        }
+        .pricing-container {
+          text-align: end;
+          h4 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            font-family: $header-font;
+          }
+          a {
+            color: $primary-bg-color;
+            text-decoration: none;
+            display: inline-block;
+            // background-color: #3F72AF;
+            background-color: #112D4E;
+            padding: 0.1rem .5rem;
+            border-radius: 10px;
+          }
+        }
+
+        .listing-texts {
+          line-height: 1.8;
+          padding: 1rem;
+
+          .room-rating {
+            display: inline-block;
+            padding: .3rem;
+            font-weight: bold;
+            font-family: $header-font;
+            font-size: 1.2rem;
+            border-radius: 5px;
+          }
+          .room-rating.red {
+            background-color: #f64141;
+          }
+          .room-rating.grey {
+            background-color: rgb(182, 180, 180);
+          }
+          .room-rating.green {
+            background-color: green;
+          }
+          
+        }
+      }
+    }
+  }
+}
+
+//Selected Apartment styling
+.Selected-Apartment {
+  .tab-content {
+    display: none;
+  }
+
+  .calender-container {
+    margin: 1.5rem 0;
+    padding: 0 2rem;
+
+    .calender-wrapper {
+      padding: .6rem;
+      border: 1px solid #00000012;
+      box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
+      border-radius: 10px;
+      text-align: center;
+
+      p {
+        display: inline-block;
+      }
+      
+      .react-datepicker-wrapper {
+        margin-left: 1rem;
+
+        .react-datepicker__input-container {
+
+          input {
+            padding: .5rem;
+            display: inline-block;
+            font-size: 1rem;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            font-family: $primary-font;
+
+            &:focus {
+              outline: 1px solid #00000012;
+              // border-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .room-container {
+
+    .tab-controls-container {
+      .tab-controls {
+        display: flex;
+        justify-content: center;
+        box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
+
+        .tab-name {
+          padding: 1rem;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .active {
+          color: #de4a4a;
+        }
+      }
+    }
+  }
+
+  .room-details {
+    padding: 0 1.5rem;
+    line-height: 1.8;
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .room-price, .rating {
+      p {
+      font-size: 1.3rem;
+      font-weight: bold;
+      font-family: $header-font;
+      display: inline-block;
+      border-radius: 5px;
+      }
+    }
+
+    .rating-item {
+      padding: .3rem;
+    }
+    .rating-item.red {
+      background-color: #f64141;
+    }
+    .rating-item.grey {
+      background-color: rgb(182, 180, 180);
+    }
+    .rating-item.green {
+      background-color: green;
+    }
+    
+  }
+}
+
+
+// Form Component Styling
+.FormComponent {
+  input {
+    appearance: none;
+    border-radius: 0;
+  }
+  
+  .card {
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 425px;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(#999, .25);
+    padding: .75rem;
+  }
+  
+  .card-image {
+    border-radius: 8px;
+    overflow: hidden;
+    padding-bottom: 65%;
+    // background-image: url('https://assets.codepen.io/285131/coffee_1.jpg');
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: 0 5%;
+    position: relative;
+  }
+  
+  .card-heading {
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    right: 10%;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #735400;
+    line-height: 1.222;
+    small {
+      display: block;
+      font-size: .75em;
+      font-weight: 400;
+      margin-top: .25em;
+    }
+  }
+  
+  .card-form {
+    padding: 2rem 1rem 0;
+  }
+  
+  .input {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    padding-top: 1.5rem;
+    &+.input {
+      margin-top: .6rem;
+    }
+  }
+  
+  .input-label {
+    color: #8597a3;
+    position: absolute;
+    top: 1rem;
+    transition: .25s ease;
+  }
+  
+  .input-field {
+    border: 0;
+    z-index: 1;
+    background-color: transparent;
+    border-bottom: 2px solid #eee; 
+    font: inherit;
+    font-size: 1.125rem;
+    padding: .25rem 0;
+    &:focus, &:valid {
+      outline: 0;
+      border-bottom-color: $primary-text-color;
+      &+.input-label {
+        color: $primary-text-color;
+        transform: translateY(-1.5rem);
+      }
+    }
+  }
+  
+  .action {
+    margin-top: 2rem;
+  }
+  
+  .action-button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1em;
+    width: 100%;
+    font-weight: 500;
+    background-color: $primary-text-color;
+    border-radius: 6px;
+    color: $primary-bg-color;
+    border: 0;
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  //Cart Styling
+  .cart-container {
+    .cart-header {
+      text-align: center;
+      margin: 1rem 0;
+      font-family: $header-font;
+    }
+
+    .cart-wrapper {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      line-height: 1.5;
+
+      .cart-item {
+        display: flex;
+        gap: .3rem;
+        font-size: 1.2rem;
+        margin: .5rem 0;
+
+        h4 {
+          font-family: $header-font;
+        }
+      }
+      .cart-item:nth-of-type(even) {
+        justify-self: end;
+      }
+    }
+
+    .grand-total {
+      text-align: end;
+      font-size: 1.3rem;
+      font-weight: bold;
+      font-family: $header-font;
+
+      p, h3 {
+        display: inline-block;
+        margin-left: .2rem;
+      }
+    }
+  }
+}
+
+.Checkout {
+  display: flex;
+  justify-content: center;
+
+  .testing-container {
+    margin: 5rem auto;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 55%;
+    
+    .testing-cards {
+
+      h3 {
+        margin: 1rem 0;
+      }
+    }
+    .testing-data {
+      display: flex;
+  
+      h2 {
+        padding: .2rem;
+        text-align: center;
+        border-radius: 4px;
+      }
+    }
+
+    button {
+      padding: .5rem;
+      margin: .4rem 0;
+      border: none;
+      color: $primary-bg-color;
+      background-color: $primary-text-color;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-family: $primary-font;
+    }
+  }
+}
+
+//About Styling
+.About {
+  text-align: center;
+  line-height: 1.8;
+  padding: 0 3rem;
+  h2 {
+    margin: 2rem 0;
+  }
+
+  p {
+    margin-bottom: 8rem;
+  }
+}
+
+//Footer Styling
+.Footer {
+  .footer-container {
+    text-align: center;
+    margin: 1rem 0 0 0;
+    background-color: $primary-text-color;
+    color: $primary-bg-color;
+    padding: 4rem 0;
+  }
+}
+
+//Larger screens
+@media screen and (min-width: 800px){
+
+//Listing styling
+#Listing {
+
+  .listing-container {
+    
+    .listing-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+  }
+
+  .Selected-Apartment {
+    .tab-content {
+      padding: 0 4rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1023px){
+
+  //Listing styling
+  #Listing {
+  
+    .listing-container {
+      
+      .listing-items {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+    }
+  }
