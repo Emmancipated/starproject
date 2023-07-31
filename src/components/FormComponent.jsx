@@ -52,9 +52,9 @@ const FormComponent = ({startDate, endDate, imageLink, roomName, roomType, roomP
       startDate: startDate,
       endDate: endDate,
       night: nightsNum,
-      total: nightsNum * 20,
-      vat: (nightsNum * 20) * (1.5 / 100),
-      grandTotal: (nightsNum * 20) * (1.5 / 100) + (nightsNum * 20),
+      total: nightsNum * roomPrice,
+      vat: ((nightsNum * roomPrice) * (1.5 / 100)).toFixed(2),
+      grandTotal: ((nightsNum * roomPrice) * (1.5 / 100) + (nightsNum * roomPrice)).toFixed(2),
     };
   
     updateGlobalState(upDatedForm);
@@ -168,12 +168,12 @@ const FormComponent = ({startDate, endDate, imageLink, roomName, roomType, roomP
                 </div>
                 <div className='cart-item'>
                   <p>Vat (1.5%):</p>
-                  <h4>{(nightsNum * roomPrice) * (1.5 / 100)}</h4>
+                  <h4>{((nightsNum * roomPrice) * (1.5 / 100)).toFixed(2)}</h4>
                 </div>
               </div>
               <div className='grand-total'>
                   <p>Grand Total:</p>
-                  <h3>&#8358;{(nightsNum * roomPrice) * (1.5 / 100) + (nightsNum * roomPrice)}</h3>
+                  <h3>&#8358;{((nightsNum * roomPrice) * (1.5 / 100) + (nightsNum * roomPrice)).toFixed(2)}</h3>
                 </div>
             </div>
 
